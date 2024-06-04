@@ -43,9 +43,7 @@ function App() {
 export default App;
 ```
 
-<video width="320" height="240" controls>
-  <source src="./src/assets/carousel.mp4" type="video/mp4">
-</video>
+![Carousel Demo](/src/assets/carousel.gif 'Carousel Demo')
 
 ### Floating Button
 
