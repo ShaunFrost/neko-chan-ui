@@ -62,7 +62,7 @@ import { FaAnchorCircleCheck } from 'react-icons/fa6';
 import { useRef } from 'react';
 
 function App() {
-    const mainDivRef = (useRef < HTMLDivElement) | (null > null);
+    const mainDivRef = useRef(null);
     const handleClick = () => {
         if (!mainDivRef.current) return;
         mainDivRef.current.style.background = 'lightgreen';
