@@ -14,6 +14,8 @@ This is a small collection of lightweight reusable components for react/typescri
 
 An infinite scroll carousel. Create your own template items array that need to be displayed and use the Carousel component to have an awesome viewing experience.
 
+#### Usage
+
 ```javascript
 import { Carousel } from 'neko-chan-ui';
 
@@ -43,9 +45,41 @@ function App() {
 export default App;
 ```
 
+#### Demo
+
 ![Carousel Demo](/src/assets/carousel.gif 'Carousel Demo')
 
 ### Floating Button
+
+A floating button component. Attributes `buttonColor` to set color of the floating button, `buttonContent` to set what goes inside the button like an icon, a symbol, a character etc,
+`buttonPressEffect` to set if you want to have a button press effect when you click the button
+
+#### Usage
+
+```javascript
+import { FloatingButton } from 'neko-chan-ui';
+import { FaAnchorCircleCheck } from 'react-icons/fa6';
+import { useRef } from 'react';
+
+function App() {
+    const mainDivRef = (useRef < HTMLDivElement) | (null > null);
+    const handleClick = () => {
+        if (!mainDivRef.current) return;
+        mainDivRef.current.style.background = 'lightgreen';
+    };
+    return (
+        <div className="main" ref={mainDivRef}>
+            <FloatingButton buttonColor="skyblue" buttonContent={<FaAnchorCircleCheck />} buttonPressEffect={true} onClick={handleClick} />
+        </div>
+    );
+}
+
+export default App;
+```
+
+#### Demo
+
+![Floating Button Demo](/src/assets/floating-button-demo.gif 'Floating Button Demo')
 
 ## Future Work
 
