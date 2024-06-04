@@ -1,0 +1,24 @@
+.floatingButton {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.floatingButton:hover {
+    cursor: pointer;
+}
+
+.floatingButtonPressEffect {
+    box-shadow: -3px 3px #666;
+}
+
+.floatingButtonPressEffect:active {
+    box-shadow: -1px 1px #666;
+    transform: translateY(2px);
+}

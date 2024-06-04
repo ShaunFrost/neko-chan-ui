@@ -1,0 +1,61 @@
+.carouselItem {
+    width: 60%;
+    height: 60%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    transition: all 0.5s ease-in;
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    background: hsl(0, 0%, 75%);
+    border-radius: 10px;
+}
+
+.carouselItemNavButton {
+    all: unset;
+    outline: none;
+    position: absolute;
+    display: flex;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 10;
+}
+
+.carouselItemNavButton > * {
+    width: 3rem;
+    height: 3rem;
+}
+
+.carouselItemNavButton:focus,
+.carouselItemNavButton:focus-visible {
+    outline: none;
+}
+
+.carouselItemCenter {
+    scale: 1;
+    translate: 0;
+    z-index: 2;
+    opacity: 1;
+}
+
+.carouselItemLeft {
+    scale: 0.5;
+    translate: -50%;
+    z-index: 1;
+    opacity: 0.4;
+}
+
+.carouselItemRight {
+    scale: 0.5;
+    translate: 50%;
+    z-index: 1;
+    opacity: 0.4;
+}
+
+.carouselItemHidden {
+    scale: 0;
+    opacity: 0;
+}
