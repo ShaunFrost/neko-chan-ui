@@ -1,12 +1,9 @@
+import logo from './assets/Neko_Chan.png';
+import { Carousel, FloatingButton, MultiSelect } from '../dist/main';
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
-import { Carousel, FloatingButton } from '../dist/main';
 
 function App() {
-    const [count, setCount] = useState(0);
-    const items = [reactLogo, viteLogo, reactLogo];
+    const items = [logo, logo, logo];
     const CarouselItems = items.map((item, index) => {
         return (
             <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '10px', padding: '5px' }}>
@@ -16,19 +13,61 @@ function App() {
         );
     });
 
+    const multiselectOptions = [
+        {
+            label: 'Charmander',
+            value: 'Charmander'
+        },
+        {
+            label: 'Squirtle',
+            value: 'Squirtle'
+        },
+        {
+            label: 'Mew',
+            value: 'Mew'
+        },
+        {
+            label: 'Bulbasaur',
+            value: 'Bulbasaur'
+        },
+        {
+            label: 'Greninja',
+            value: 'Greninja'
+        },
+        {
+            label: 'Celebi',
+            value: 'Celebi'
+        },
+        {
+            label: 'Heracross',
+            value: 'Heracross'
+        },
+        {
+            label: 'Typhlosion',
+            value: 'Typhlosion'
+        }
+    ];
+
+    const [multiSelectValues, setMultiSelectValues] = useState([multiselectOptions[0].value]);
+    const onAddOption = (option: string) => {
+        setMultiSelectValues((prev) => [...prev, option]);
+    };
+    const onRemoveOption = (option: string) => {
+        setMultiSelectValues((prev) => prev.filter((value) => value !== option));
+    };
+    const onRemoveAll = () => {
+        setMultiSelectValues([]);
+    };
+
     return (
         <>
+            <div style={{ marginBottom: '20px' }}>
+                <MultiSelect options={multiselectOptions} values={multiSelectValues} onAddOption={onAddOption} onRemoveOption={onRemoveOption} onRemoveAll={onRemoveAll} />
+            </div>
             <div style={{ width: '500px', height: '500px', backgroundColor: 'black' }}>
                 <Carousel items={CarouselItems} />
             </div>
-            <h1>Vite + React</h1>
-            <div className="card">
-                <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-                <p>
-                    Edit <code>src/App.tsx</code> and save to test HMR
-                </p>
-            </div>
-            <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
+
             <FloatingButton buttonColor="skyblue" buttonContent={'R'} buttonPressEffect={true} />
         </>
     );

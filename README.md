@@ -81,6 +81,79 @@ export default App;
 
 ![Floating Button Demo](/src/assets/floating-button-demo.gif 'Floating Button Demo')
 
+### Multi Select
+
+A multi select component. Attributes `options` is an array of selectable options which have a label and value, `values` is a state variable that holds an array of selected values, `onAddOption` is a
+method to add a value to the state variable _values_, `onRemoveOption` is a method to remove a value from the state variable _values_, `onRemoveAll` is a method to remove all the selected values in
+the state variable _values_
+
+#### Usage
+
+```javascript
+import { MultiSelect } from 'neko-chan-ui';
+import { useState } from 'react';
+
+function App() {
+    const multiselectOptions = [
+        {
+            label: 'Charmander',
+            value: 'Charmander'
+        },
+        {
+            label: 'Squirtle',
+            value: 'Squirtle'
+        },
+        {
+            label: 'Mew',
+            value: 'Mew'
+        },
+        {
+            label: 'Bulbasaur',
+            value: 'Bulbasaur'
+        },
+        {
+            label: 'Greninja',
+            value: 'Greninja'
+        },
+        {
+            label: 'Celebi',
+            value: 'Celebi'
+        },
+        {
+            label: 'Heracross',
+            value: 'Heracross'
+        },
+        {
+            label: 'Typhlosion',
+            value: 'Typhlosion'
+        }
+    ];
+
+    const [multiSelectValues, setMultiSelectValues] = useState([multiselectOptions[0].value]);
+    const onAddOption = (option: string) => {
+        setMultiSelectValues((prev) => [...prev, option]);
+    };
+    const onRemoveOption = (option: string) => {
+        setMultiSelectValues((prev) => prev.filter((value) => value !== option));
+    };
+    const onRemoveAll = () => {
+        setMultiSelectValues([]);
+    };
+
+    return (
+        <div className="main">
+            <MultiSelect options={multiselectOptions} values={multiSelectValues} onAddOption={onAddOption} onRemoveOption={onRemoveOption} onRemoveAll={onRemoveAll} />
+        </div>
+    );
+}
+
+export default App;
+```
+
+#### Demo
+
+![MultiSelect Demo](/src/assets/multi-select.gif 'MultiSelect Demo')
+
 ## Future Work
 
 Add more resubale components and add ability to use the component code directly without having to install the library (in cases when you just need one component).

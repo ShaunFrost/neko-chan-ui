@@ -1,0 +1,114 @@
+.multiselect-container {
+    position: relative;
+    outline: none;
+    width: 20em;
+    min-height: 1.5em;
+    border: 0.1em solid #777;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.5em;
+    border-radius: 0.25em;
+}
+
+.multiselect-container:focus {
+    border-color: skyblue;
+}
+
+.multiselect-value {
+    flex-grow: 1;
+    display: flex;
+    gap: 0.1em;
+    flex-wrap: wrap;
+}
+
+.selected-value {
+    display: flex;
+    align-items: center;
+    gap: 0.2em;
+    border: 0.05em solid #777;
+    border-radius: 0.25em;
+    padding: 0.1em 0.2em;
+    cursor: pointer;
+    background: none;
+    outline: none;
+}
+
+.selected-value:hover,
+.selected-value:focus {
+    background-color: hsl(0, 100%, 90%);
+    border-color: hsl(0, 100%, 60%);
+}
+
+.selected-value > .remove-option {
+    font-size: 1.5em;
+    color: #777;
+}
+
+.selected-value:hover > .remove-option,
+.selected-value:focus > .remove-option {
+    color: hsl(0, 100%, 60%);
+}
+
+.multiselect-clear {
+    outline: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    padding: 0;
+    background: none;
+    color: #777;
+}
+
+.multiselect-clear:hover,
+.multiselect-clear:focus {
+    color: #222;
+}
+
+.multiselect-divider {
+    width: 0.1em;
+    background-color: #777;
+    align-self: stretch;
+}
+
+.multiselect-show {
+    border: 0.5em solid transparent;
+    border-top-color: #777;
+    transform: translateY(25%);
+}
+
+.multiselect-options {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: absolute;
+    top: calc(100% + 1em);
+    left: 0;
+    border: 0.1em solid #777;
+    border-radius: 0.25em;
+    width: 100%;
+    max-height: 15em;
+    overflow-y: auto;
+    background-color: white;
+    z-index: 100;
+    display: none;
+}
+
+.multiselect-options.show {
+    display: block;
+}
+
+.multiselect-option {
+    padding: 0.25em 0.5em;
+    font-size: 1.25em;
+    cursor: pointer;
+}
+
+.multiselect-option.selected {
+    background-color: #aaa;
+}
+
+.multiselect-option.highlighted {
+    background-color: #ccc;
+    color: white;
+}
